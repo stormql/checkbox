@@ -25,6 +25,10 @@ class CheckboxList extends React.Component {
 
   handleToggle = value => () => {
 
+    // Without this next line of code
+    // The event will not fire !
+    const { toggleCheckbox } = this.props
+
     //console.log(value);
     toggleCheckbox(value);
 
