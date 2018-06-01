@@ -24,6 +24,10 @@ class CheckboxList extends React.Component {
   };
 
   handleToggle = value => () => {
+
+    //console.log(value);
+    toggleCheckbox(value);
+
     const { checked } = this.state;
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
@@ -75,6 +79,8 @@ CheckboxList.propTypes = {
 //export default withStyles(styles)(CheckboxList);
 
 export default compose(
-  withStyles(styles),
   connect(null,{toggleCheckbox}),
+  withStyles(styles),
 )(CheckboxList);
+
+//export default connect(null, {toggleCheckbox})(CheckboxList);
