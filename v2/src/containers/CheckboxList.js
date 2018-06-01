@@ -6,6 +6,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 
+import { connect } from 'react-redux';
+import compose from 'recompose/compose';
+import {toggleCheckbox} from './../actions';
+
 const styles = theme => ({
   root: {
     width: '100%',
@@ -68,4 +72,9 @@ CheckboxList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CheckboxList);
+//export default withStyles(styles)(CheckboxList);
+
+export default compose(
+  withStyles(styles),
+  connect(null,{toggleCheckbox}),
+)(CheckboxList);
