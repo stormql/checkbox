@@ -2,9 +2,9 @@ import 'babel-polyfill'
 
 import React from 'react';
 import { render } from 'react-dom';
-import Demo from './demo';
+import Root from './containers/root';
 
 const rootElement = document.querySelector('#root');
 if (rootElement) {
-  render(<Demo />, rootElement);
+  render(<Root />, rootElement);
 }
