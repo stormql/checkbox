@@ -24,27 +24,10 @@ class CheckboxList extends React.Component {
   };
 
   handleToggle = value => () => {
-
     // Without this next line of code
     // The event will not fire !
     const { toggleCheckbox } = this.props
-
-    //console.log(value);
     toggleCheckbox(value);
-
-    const { checked } = this.state;
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    this.setState({
-      checked: newChecked,
-    });
   };
 
   render() {
@@ -80,11 +63,7 @@ CheckboxList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-//export default withStyles(styles)(CheckboxList);
-
 export default compose(
   connect(null,{toggleCheckbox}),
   withStyles(styles),
 )(CheckboxList);
-
-//export default connect(null, {toggleCheckbox})(CheckboxList);
