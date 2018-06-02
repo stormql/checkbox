@@ -31,11 +31,8 @@ export const checkbox = (state = initialState.key1, action) => {
     });
 */
 
-
-
-
       console.log("Reducer checkbox ", action.name);
-      return state;
+      return newChecked;
     default:
       return state;
   }
