@@ -18,7 +18,7 @@ export const checkbox = (state = initialState.key1, action) => {
         newChecked.splice(currentIndex, 1);
       }
 
-      console.log('newChecked', newChecked);
+      // console.log('newChecked', newChecked);
       return newChecked;
     default:
       return state;

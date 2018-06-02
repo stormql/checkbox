@@ -30,7 +30,7 @@ class CheckboxList extends React.Component {
   };
 
   render() {
-    const { classes, ralph } = this.props;
+    const { classes, mykeychecks } = this.props;
 
     return (
       <div className={classes.root}>
@@ -45,7 +45,7 @@ class CheckboxList extends React.Component {
               className={classes.listItem}
             >
               <Checkbox
-                checked={ralph.indexOf(value) !== -1}
+                checked={mykeychecks.indexOf(value) !== -1}
                 tabIndex={-1}
                 disableRipple
               />
@@ -60,12 +60,11 @@ class CheckboxList extends React.Component {
 
 CheckboxList.propTypes = {
   classes: PropTypes.object.isRequired,
-  ralph: PropTypes.array.isRequired
+  mykeychecks: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
-  // products: getStateKey(state)
-  ralph: getStateKey(state)
+  mykeychecks: getStateKey(state)
 })
 
 
