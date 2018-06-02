@@ -10,6 +10,8 @@ import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import {toggleCheckbox} from './../actions';
 
+import { getStateKey } from "../reducers";
+
 const styles = theme => ({
   root: {
     width: '100%',
@@ -19,9 +21,6 @@ const styles = theme => ({
 });
 
 class CheckboxList extends React.Component {
-  state = {
-    checked: [0],
-  };
 
   handleToggle = value => () => {
     // Without this next line of code
@@ -31,7 +30,7 @@ class CheckboxList extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, products } = this.props;
 
     return (
       <div className={classes.root}>
@@ -46,7 +45,7 @@ class CheckboxList extends React.Component {
               className={classes.listItem}
             >
               <Checkbox
-                checked={this.state.checked.indexOf(value) !== -1}
+                checked={[0].indexOf(value) !== -1}
                 tabIndex={-1}
                 disableRipple
               />
@@ -63,7 +62,12 @@ CheckboxList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
+const mapStateToProps = state => ({
+  products: getStateKey(state)
+})
+
+
 export default compose(
-  connect(null,{toggleCheckbox}),
+  connect(mapStateToProps,{toggleCheckbox}),
   withStyles(styles),
 )(CheckboxList);
